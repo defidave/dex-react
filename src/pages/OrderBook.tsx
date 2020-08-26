@@ -14,6 +14,7 @@ import InputBox from 'components/InputBox'
 const OrderBookPage = styled(ContentPage)`
   padding: 2.4rem 0rem;
   min-height: initial;
+  max-width: initial;
 `
 
 const OrderBookWrapper = styled.div`
@@ -63,6 +64,7 @@ const OrderBookWrapper = styled.div`
 
     input {
       padding: 0 1rem;
+      max-width: 8em;
     }
 
     label {
@@ -134,7 +136,8 @@ const OrderBook: React.FC = () => {
             <label>BatchId</label>
             <Input
               value={batchId}
-              type="string"
+              type="number"
+              min="0"
               onChange={(e: ChangeEvent<HTMLInputElement>): void => {
                 const batchIdValue = e.target.value
                 if (batchIdValue && !isNaN(Number(batchIdValue))) {
